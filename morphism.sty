@@ -3,6 +3,9 @@
 
 \RequirePackage{xparse}
 
+\newcommand*\longhookrightarrow{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+\newcommand*\longtwoheadrightarrow{\ensuremath{\relbar\joinrel\twoheadrightarrow}}
+
 \makeatletter
 \newcommand*\map@arrow[1][]{\csname#1rightarrow\endcsname{}}
 
