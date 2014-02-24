@@ -1,0 +1,58 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{morphism}[2014/02/24 v0.0.1 Typesetting morphisms]
+
+\RequirePackage{xparse}
+
+\makeatletter
+\newcommand*\map@arrow[1][]{\csname#1rightarrow\endcsname{}}
+
+\DeclareDocumentCommand \map {o m o m o o}
+{%
+	\mathchoice
+	{
+		\IfValueTF{#5}{%
+			\IfValueTF{#6}{%
+				\IfValueTF{#1}{
+					\arraycolsep=1.4pt
+					\begin{array}{crll}
+						#1\colon &
+						#2 &
+						\map@arrow[long\IfValueTF{#3}{#3}{}] &
+						#4 \\
+						& #5 & \longmapsto & #6
+					\end{array}
+				}{
+					\arraycolsep=1.4pt
+					\begin{array}{rll}
+						#2 &
+						\map@arrow[long\IfValueTF{#3}{#3}{}] &
+						#4 \\
+						#5 & \longmapsto & #6
+					\end{array}
+				}
+			}{%
+				\IfValueTF{#1}{#1\colon}{}
+				#2 \map@arrow[long\IfValueTF{#3}{#3}{}] #4
+			}
+		}{%
+			\IfValueTF{#1}{#1\colon}{}
+			#2 \map@arrow[long\IfValueTF{#3}{#3}{}] #4
+		}
+	}
+	{
+		\IfValueTF{#1}{#1\colon}{}
+		#2\map@arrow[\IfValueTF{#3}{#3}{}]#4%
+		\IfValueTF{#5}{\IfValueTF{#6}{,#5\mapsto#6}{}}{}
+	}
+	{
+		\IfValueTF{#1}{#1\colon}{}
+		#2\map@arrow[\IfValueTF{#3}{#3}{}]#4%
+		\IfValueTF{#5}{\IfValueTF{#6}{,#5\mapsto#6}{}}{}
+	}
+	{
+		\IfValueTF{#1}{#1\colon}{}
+		#2\map@arrow[\IfValueTF{#3}{#3}{}]#4%
+		\IfValueTF{#5}{\IfValueTF{#6}{,#5\mapsto#6}{}}{}
+	}
+}
+\makeatother
