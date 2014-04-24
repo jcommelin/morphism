@@ -1,6 +1,8 @@
 morphism
 ========
 
+This package is heavily inspired by and builds upon Pieter Belmans ideas: http://pbelmans.wordpress.com/2010/12/24/an-extension-to-our-function-macro-injective-and-surjective-functions/.
+
 Typesetting morphisms in LaTeX
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
